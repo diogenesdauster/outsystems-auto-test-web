@@ -1,0 +1,17 @@
+package br.gruposer.gokursos.pages;
+
+import org.openqa.selenium.By;
+
+import br.gruposer.gokursos.core.BasePage;
+
+public class PlanosPage extends BasePage{
+
+	public void euQuero() {
+		acoes.clicarNaOpcaoLinkPorTexto("Eu quero!");
+	}
+	
+	public void selecionarPlano(String plano) {
+		acoes.aguardarElementoFicarClicavel(By.xpath("//div[@class='header']/div[div='\"+valor+\"']/../../div/div/input[@value='Quero assinar']"));
+		acoes.clicarNoBotaoDentroDoCardDePlanos(plano);
+	}
+}

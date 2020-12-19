@@ -1,0 +1,78 @@
+package br.gruposer.gokursos.test;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import br.gruposer.gokursos.pages.HomePage;
+import br.gruposer.gokursos.pages.LoginPage;
+
+
+public class LoginTest {
+	
+	private WebDriver driver;
+	private HomePage home; 
+	private LoginPage login;
+
+@Before
+	public void Inicialização() {
+		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://qamthomol.gokursos.com/");
+		home = new HomePage(driver);
+		login = new LoginPage(driver); }
+
+@After
+	public void Conclusão() throws InterruptedException {
+	Thread.sleep(3000);
+	driver.quit();
+}
+
+
+@Test
+	public void loginComSucesso() {
+		home.abrirLogin();
+		login.setEmail("isabela@teste.com");
+		login.setSenha("isa@1234");
+		login.tudoCerto();}
+
+
+@Test
+	public void loginComSenhaErrada() throws InterruptedException {
+		home.abrirLogin();
+		login.setEmail("isabela@teste.com");
+		login.setSenha("1215613");
+		login.tudoCerto();
+		Thread.sleep(5000);
+		assertEquals("x\nE-mail ou senha inválida", login.obterMensagem());
+		login.fecharMensagem(); }	
+
+@Test
+	public void esquecirMinhaSenhaEmailValido() throws InterruptedException {
+		home.abrirLogin();
+		login.esqueciMinhaSenha();
+		Thread.sleep(5000);
+		driver.findElement(By.id("wt4_wtMainFermento_wt34_wtMensagem_Input")).sendKeys("thais@teste.com");
+		driver.findElement(By.id("wt4_wtMainFermento_wt34_wt26")).click();
+		Thread.sleep(5000);
+		assertEquals("x\nE-mail enviado com sucesso", login.obterMensagem());
+		login.fecharMensagem();}
+
+
+@Test
+public void esquecirMinhaSenhaEmailNaoCadastrado() throws InterruptedException {
+		home.abrirLogin();
+		driver.findElement(By.linkText("Esqueceu sua senha?")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.id("wt4_wtMainFermento_wt34_wtMensagem_Input")).sendKeys("juremamasfsa@teste.com");
+		driver.findElement(By.id("wt4_wtMainFermento_wt34_wt26")).click();
+		Thread.sleep(5000);
+		assertEquals("x\nUsuário não encontrado", login.obterMensagem());
+		login.fecharMensagem();}
+
+
+}

@@ -1,0 +1,9 @@
+package br.gruposer.gokursos.pages;
+
+public class PagamentoPage extends BasePage {
+	
+	public void gerarDadosCartao() {
+		acoes
+	}
+
+}

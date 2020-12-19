@@ -1,0 +1,16 @@
+package br.gruposer.gokursos.test;
+
+import org.junit.Test;
+import br.gruposer.gokursos.core.BaseTest;
+
+public class ComprarPlanoTest extends BaseTest	{
+
+	@Test
+	public void realizarCompraDePlano() {
+		home.acessarPlanosDeAssinatura();
+		planos.euQuero();
+		planos.selecionarPlano("Plano especial");
+		
+	}
+	
+}

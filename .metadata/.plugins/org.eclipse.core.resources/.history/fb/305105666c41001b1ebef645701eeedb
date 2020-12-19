@@ -1,0 +1,5 @@
+package br.gruposer.gokursos.pages;
+
+public class PagamentoPage {
+
+}

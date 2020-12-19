@@ -1,0 +1,12 @@
+package br.gruposer.gokursos.test;
+
+import br.gruposer.gokursos.core.BaseTest;
+
+public class ComprarPlanoTest extends BaseTest	{
+
+	@test
+	public void realizarCompraDePlano() {
+		
+	}
+	
+}

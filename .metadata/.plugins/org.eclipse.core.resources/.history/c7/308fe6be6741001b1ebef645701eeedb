@@ -1,0 +1,14 @@
+package br.gruposer.gokursos.pages;
+
+import br.gruposer.gokursos.core.BasePage;
+
+public class PlanosPage extends BasePage{
+
+	public void euQuero() {
+		acoes.clicarNaOpcaoLinkPorTexto("Eu quero!");
+	}
+	
+	public void selecionarPlano(String plano) {
+		acoes.clicarNoBotaoDentroDoCardDePlanos(plano);
+	}
+}

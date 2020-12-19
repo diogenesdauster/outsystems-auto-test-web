@@ -1,0 +1,8 @@
+package br.gruposer.gokursos.pages;
+
+public class PlanosPage extends BasePage{
+
+	public void euQuero() {
+		
+	}
+}

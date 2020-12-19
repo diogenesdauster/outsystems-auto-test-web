@@ -1,0 +1,7 @@
+package br.gruposer.gokursos.test;
+
+public class ComprarPlanoTest extends BaseTest{
+
+	@Test
+	
+}

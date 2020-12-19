@@ -1,0 +1,20 @@
+package br.gruposer.gokursos.suites;
+
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+import br.gruposer.gokursos.test.ComprasTest;
+import br.gruposer.gokursos.test.LoginTest;
+
+
+@RunWith(Suite.class)
+@SuiteClasses({
+	ComprasTest.class 
+}
+	)
+
+public class SuiteTeste {
+
+
+}

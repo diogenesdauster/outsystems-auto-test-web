@@ -1,0 +1,106 @@
+package br.gruposer.gokursos.test;
+
+import static br.gruposer.gokursos.core.DriverFactory.getDriver;
+import static br.gruposer.gokursos.core.DriverFactory.killDriver;
+import java.awt.AWTException;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import br.gruposer.gokursos.core.BaseTest;
+import br.gruposer.gokursos.core.DriverFactory;
+import br.gruposer.gokursos.evidencias.GerarEvidencias;
+import br.gruposer.gokursos.evidencias.InserirPrintsNoArquivoWord;
+import br.gruposer.gokursos.pages.CarrinhoPage;
+import br.gruposer.gokursos.pages.CategoriasPages;
+import br.gruposer.gokursos.pages.DetalhesCursoPage;
+import br.gruposer.gokursos.pages.HomePage;
+import br.gruposer.gokursos.pages.LoginPage;
+import br.gruposer.gokursos.pages.MeusPedidosPage;
+import br.gruposer.gokursos.pages.SerPagPage;
+
+public class ComprasTest extends BaseTest{
+	
+
+@Test
+	public void realizarCompraSemEstarLogadoCursoGratuito() throws HeadlessException, InvalidFormatException, IOException, AWTException {
+		 														evi.Inicializafile();
+		 														evi.inserePrintNoDoc();
+		buscar.pesquisarPeloNomeEClicarEnter("Novo Curso QA"); 	evi.inserePrintNoDoc();
+		buscar.clicarNoCursoSelecionado(); 						evi.inserePrintNoDoc();
+		DetalheCurso.clicarEmMatricular();						evi.inserePrintNoDoc();
+		carrinho.clicarEmFinalizarCopmra();						evi.inserePrintNoDoc();
+		login.setEmail("gustavo@teste.com");					evi.inserePrintNoDoc();
+		login.setSenha("gustavo@17"); 							evi.inserePrintNoDoc();
+		login.tudoCerto();										evi.inserePrintNoDoc();
+		home.usuarioLogado(); 									evi.inserePrintNoDoc();
+																evi.GerarEvidencia("realizarCompraSemEstarLogadoCursoGratuito");
+		
+		
+}
+/*
+@Test
+	public void realizarCompraSemEstarLogadoNoBoleto() throws InterruptedException, HeadlessException, InvalidFormatException, IOException, AWTException {
+		evidencia.Inicializafile();
+		home.abrirTodasCategorias();
+			evidencia.passoDoScript("1. Abrir a tela com a opção de todas categorias selecionadas");
+		categoria.pesquisarPeloNomeEClicarEnter("Storytelling"); 
+			evidencia.passoDoScript("2. Pesquisa pelo curso 'Storytelling' e clicar em 'enter'");
+		categoria.clicarNoCursoSelecionado("Storytelling"); 
+			evidencia.passoDoScript("3. Selecionar o curso 'Storytelling' que retornou");
+		DetalheCurso.clicarEmMatricular();
+			evidencia.passoDoScript("4. Clicar em Matricular");
+		carrinho.comprarNoBoleto(); 
+			evidencia.passoDoScript("5. Selecionar a opção de compra no boleto");
+		login.setEmail("heloisa@teste.com");
+		login.setSenha("heloisa@17");
+			evidencia.passoDoScript("6. preencher o login e a senha");
+			evidencia.GerarEvidencia("realizarCompraSemEstarLogadoNoBoleto.docx");
+		login.tudoCerto();
+		
+		}
+*/
+/*
+
+@Test
+public void realizarCompraSemEstarLogadoNoCartão() {
+	
+		home.abrirTodasCategorias(); 								// 1.  Abre a home, e na aba de categorias seleciona a opção "Todos"
+		categoria.pesquisarPeloNomeEClicarEnter("Storytelling");    // 3.  Pesquisa pelo nome passado	
+		categoria.clicarNoCursoSelecionado("Storytelling"); 	    // 4.  Clica no nome que retornou da busca 	
+		DetalheCurso.clicarEmMatricular(); 						    // 5.  Na tela de detalhes do curso, clicar em Matricular
+		carrinho.comprarNoCartao(); 						        // 6.  Na tela de carrinho seleciona a opção de comprar no cartão; 
+		login.setEmail("heloisa@teste.com");			     		// 7.  Na tela de login informa o e-mail do usuário		
+		login.setSenha("heloisa@17");								// 8.  Na tela de login informa a senha do usuário
+		login.tudoCerto();									     	// 9.  Clica no botão tudo certo, para logar
+		pagamento.preencherDadosDoCartao(); 						// 11. Na tela do SerPag, clicar no botão para preencher os dados do cartão	
+		pagamento.clicarEmPagar();									// 12. Na tela do ser pag, apos informar os dados, cilcar no botão de pagar
+
+		}
+
+
+@Test
+public void realizarCompraEstandoLogadoNoCartão() throws InterruptedException {
+		getDriver().get("https://qamthomol.gokursos.com/login?(not.licensed.for.production)=");
+		login.setEmail("heloisa@teste.com");				     		
+		login.setSenha("heloisa@17");								   
+		login.tudoCerto();
+		Thread.sleep(10000);
+		getDriver().get("https://qamthomol.gokursos.com/pedidos?(not.licensed.for.production)=");
+		checkout.clicarEmPagarComCartão("Storytelling");	
+		Thread.sleep(5000);
+		pagamento.preencherDadosDoCartao(); 						
+		pagamento.clicarEmPagar();								
+
+		
+		}
+		
+		*/
+}

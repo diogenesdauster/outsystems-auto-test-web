@@ -17,8 +17,5 @@ public class PagamentoPlanosPage extends BasePage {
 	public void validaMsgPagamentoComSucesso() {
 		
 	}
-	
-	public void validaCompraEmMeusPlanos() {
 		
-	}
 }

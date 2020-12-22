@@ -48,7 +48,7 @@ public class BaseTest {
 	@After
 	public void Conclusão() throws InterruptedException {
 		if(Propriedades.FECHAR_BROWSER) {
-			//killDriver();
+			killDriver();
 		} 
 		
 	}

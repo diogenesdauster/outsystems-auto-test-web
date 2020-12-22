@@ -11,7 +11,9 @@ import br.gruposer.gokursos.test.LoginTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	ComprarPlanoTest.class
+	ComprarPlanoTest.class, 
+	ComprarCursoTest.class
+	
 }
 	)
 

@@ -17,7 +17,7 @@ import br.gruposer.gokursos.evidencias.GerarEvidencias;
 import br.gruposer.gokursos.evidencias.InserirPrintsNoArquivoWord;
 import br.gruposer.gokursos.pages.*;
 
-public class ComprasTest extends BaseTest{
+public class ComprarCursoTest extends BaseTest{
 
 @Test
 	public void realizarCompraCursoGratuitoIniciandoSemEstarLogado() throws HeadlessException, InvalidFormatException, IOException, AWTException, InterruptedException {
@@ -39,7 +39,7 @@ public class ComprasTest extends BaseTest{
 		evi.inserePrintNoDoc();// Print
 		login.tudoCerto();										 
 		evi.inserePrintNoDoc();// Print
-		home.usuarioLogado();
+		home.validaQueUsuarioEstaLogado();
 		Assert.assertEquals("GRÁTIS", pedidos.getStatusPedidoSucesso());	evi.inserePrintNoDoc();// Print
 		evi.concluiEvidencia("[TESTE AUTOMATIZADO] - Realizar Compra de Curso Gratuito, iniciando fluxo sem está logado");
 		}
@@ -50,7 +50,7 @@ public class ComprasTest extends BaseTest{
 		evi.iniciaEvidencia(); // Inicia evidência
 		evi.inserePrintNoDoc();// Print
 		//1. No campo de buscar, informar o curso X, e clica enter para realizar a busca  	  	
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva"); evi.inserePrintNoDoc();//print
+		buscar.informarONomeEClicarEnter("Energias Renováveis"); evi.inserePrintNoDoc();//print
 		//2. Na tela de busca, clica no curso retornado	
 		buscar.clicarNoCursoSelecionado(); evi.inserePrintNoDoc();//print
 		//3. Na tela de detalhes do curso, clica em Comprar curso	
@@ -63,7 +63,7 @@ public class ComprasTest extends BaseTest{
 		//6. Na tela login, clicar em tudo certo
 		login.tudoCerto(); evi.inserePrintNoDoc();//print
 		//7. Valida que o usuário está logado
-		home.usuarioLogado();
+		home.validaQueUsuarioEstaLogado();
 		//8. Valida que o status do pedido está como PAGAMENTO PENDENTE
 		Assert.assertEquals("PAGAMENTO PENDENTE", pedidos.getStatusPedidoPendente()); evi.inserePrintNoDoc();
 		//9. Conclui evidência
@@ -79,7 +79,7 @@ public void realizarCompraNoCartãoIniciandoSemEstarLogado() throws HeadlessExce
 				evi.iniciaEvidencia(); // Inicia evidência
 				evi.inserePrintNoDoc();// Print
 		//1. No campo de buscar, informar o curso X, e clica enter para realizar a busca  		
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva");	evi.inserePrintNoDoc();// Print
+		buscar.informarONomeEClicarEnter("Energias Renováveis");	evi.inserePrintNoDoc();// Print
 		//2. Na tela de busca, clica no curso retornado		
 		buscar.clicarNoCursoSelecionado(); 	evi.inserePrintNoDoc();// Print
 		//3. Na tela de detalhes do curso, clica em Comprar curso		
@@ -93,20 +93,20 @@ public void realizarCompraNoCartãoIniciandoSemEstarLogado() throws HeadlessExce
 		//7. Clicar em tudo certo	
 		login.tudoCerto(); evi.inserePrintNoDoc();// Print
 		//8. Aguarda e valida o usuário ser logado na aplicação		
-		home.usuarioLogado(); evi.inserePrintNoDoc();// Print		
+		home.validaQueUsuarioEstaLogado(); evi.inserePrintNoDoc();// Print		
 		//9. Na tela de pedidos, clica em pagar com o cartão		
 		pedidos.pagarComCartão(); evi.inserePrintNoDoc();// Print
 		//10. Na tela do SERPAG, de pagamento, clica em preencher os dados; 		
-		pagamento.preencherDadosDoCartao(); evi.inserePrintNoDoc();// Print
+		serpag.preencherDadosDoCartao(); evi.inserePrintNoDoc();// Print
 		//11. Clica em pagar		
-		pagamento.clicarEmPagar(); evi.inserePrintNoDoc();// Print
+		serpag.clicarEmPagar(); evi.inserePrintNoDoc();// Print
 		//12. Valida que o status do pagamento está como PAGAMENTO REALIZADO		
 		Assert.assertEquals("PAGAMENTO REALIZADO", pedidos.getStatusPedidoSucesso()); evi.inserePrintNoDoc();
 		//13. Conclui evidência
 		evi.concluiEvidencia("[TESTE AUTOMATIZADO] - Realizar compra no Cartão, iniciando fluxo sem está logado");
 
 		}
-/*
+
 
 @Test
 public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, InvalidFormatException, IOException, AWTException, InterruptedException {
@@ -114,7 +114,7 @@ public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, Inv
 				evi.iniciaEvidencia(); // Inicia evidência
 				evi.inserePrintNoDoc();// Print
 		//1. No campo de buascar, informar o curso X, e clicar enter para realizar a busca 
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva"); evi.inserePrintNoDoc();//Print
+		buscar.informarONomeEClicarEnter("Energias Renováveis"); evi.inserePrintNoDoc();//Print
 		//2. Na tela de busca, clica no curso retornado
 		buscar.clicarNoCursoSelecionado();	evi.inserePrintNoDoc();//Print
 		//3. Na tela de detalhes do curso, clica em Comprar curso		
@@ -122,7 +122,7 @@ public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, Inv
 		//4. Na tela de checkout, clicar no botão de comprar no cartão
 		carrinho.comprarNoCartao(); evi.inserePrintNoDoc();//Print
 		//5. Na tela de login, clicar no botão de Quero me registrar		
-		login.queroMeRegistrar(); evi.inserePrintNoDoc();//Print
+		login.registrar(); evi.inserePrintNoDoc();//Print
 		//6. Informar o nome
 		cadastro.setNome("Marcelo Igor Arthur Alves"); evi.inserePrintNoDoc();//Print
 		//7. Informar o CPF
@@ -141,19 +141,19 @@ public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, Inv
 		//11. Fechar mensagem		
 		cadastro.fecharMensagemDeSucesso();			
 		//12. Aguardar e validar que o usuário cadastrado logou na aplicação		
-		home.usuarioLogado(); evi.inserePrintNoDoc();//Print
+		home.validaQueUsuarioEstaLogado(); evi.inserePrintNoDoc();//Print
 		//13. Será carregado a tela de pedidos, e irá clicar no botão de pagar no cartão
 		pedidos.pagarComCartão(); evi.inserePrintNoDoc();//Print
 		//14.clicar no icone para preencher os dados do cartão	
-		pagamento.preencherDadosDoCartao(); evi.inserePrintNoDoc();//Print
+		serpag.preencherDadosDoCartao(); evi.inserePrintNoDoc();//Print
 		//15. Clicar no botão de pagar		
-		pagamento.clicarEmPagar(); evi.inserePrintNoDoc(); //Print
+		serpag.clicarEmPagar(); evi.inserePrintNoDoc(); //Print
 		//16. Validar na tEla de pedidos, que o status do pedido esta como PAGAMENTO REALIZADO 
 		Assert.assertEquals("PAGAMENTO REALIZADO", pedidos.getStatusPedidoSucesso()); evi.inserePrintNoDoc();
 		//17. Conclui evidência		
 		evi.concluiEvidencia("[TESTE AUTOMATIZADO] - Realizar compra no Cartão, se cadastrando");
 			
 		}
-*/
+
 
 }

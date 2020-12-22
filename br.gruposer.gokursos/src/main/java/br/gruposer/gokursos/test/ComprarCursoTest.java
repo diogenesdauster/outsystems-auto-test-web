@@ -50,7 +50,7 @@ public class ComprarCursoTest extends BaseTest{
 		evi.iniciaEvidencia(); // Inicia evidência
 		evi.inserePrintNoDoc();// Print
 		//1. No campo de buscar, informar o curso X, e clica enter para realizar a busca  	  	
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva"); evi.inserePrintNoDoc();//print
+		buscar.informarONomeEClicarEnter("Energias Renováveis"); evi.inserePrintNoDoc();//print
 		//2. Na tela de busca, clica no curso retornado	
 		buscar.clicarNoCursoSelecionado(); evi.inserePrintNoDoc();//print
 		//3. Na tela de detalhes do curso, clica em Comprar curso	
@@ -79,7 +79,7 @@ public void realizarCompraNoCartãoIniciandoSemEstarLogado() throws HeadlessExce
 				evi.iniciaEvidencia(); // Inicia evidência
 				evi.inserePrintNoDoc();// Print
 		//1. No campo de buscar, informar o curso X, e clica enter para realizar a busca  		
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva");	evi.inserePrintNoDoc();// Print
+		buscar.informarONomeEClicarEnter("Energias Renováveis");	evi.inserePrintNoDoc();// Print
 		//2. Na tela de busca, clica no curso retornado		
 		buscar.clicarNoCursoSelecionado(); 	evi.inserePrintNoDoc();// Print
 		//3. Na tela de detalhes do curso, clica em Comprar curso		
@@ -114,7 +114,7 @@ public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, Inv
 				evi.iniciaEvidencia(); // Inicia evidência
 				evi.inserePrintNoDoc();// Print
 		//1. No campo de buascar, informar o curso X, e clicar enter para realizar a busca 
-		buscar.informarONomeEClicarEnter("Nutrição Esportiva"); evi.inserePrintNoDoc();//Print
+		buscar.informarONomeEClicarEnter("Energias Renováveis"); evi.inserePrintNoDoc();//Print
 		//2. Na tela de busca, clica no curso retornado
 		buscar.clicarNoCursoSelecionado();	evi.inserePrintNoDoc();//Print
 		//3. Na tela de detalhes do curso, clica em Comprar curso		
@@ -124,21 +124,22 @@ public void realizarCompraNoCartãoSeCadastrando() throws HeadlessException, Inv
 		//5. Na tela de login, clicar no botão de Quero me registrar		
 		login.registrar(); evi.inserePrintNoDoc();//Print
 		//6. Informar o nome
-		cadastro.setNome("Marcelo Igor Arthur Alves"); evi.inserePrintNoDoc();//Print
+		cadastro.setNome("Cláudio Pietro Lucas Brito"); evi.inserePrintNoDoc();//Print
 		//7. Informar o CPF
-		cadastro.setCPF("57770060435"); evi.inserePrintNoDoc();//Print
+		cadastro.setCPF("51033763420"); evi.inserePrintNoDoc();//Print
 		//8. Clicar em tudo certo
 		cadastro.tudoCerto();		
 		Thread.sleep(5000);
 		//9. Informar o E-mail, Data de nascmiento, Telefone e Senha
-		cadastro.setEmail("marcelo@teste.com");
+		cadastro.setEmail("claudio@testes.com");
 		cadastro.setDataDeNascimento("02051996");
 		cadastro.setTelefone("08195424131");
 		cadastro.setSenha("123456"); evi.inserePrintNoDoc();//Print
 		cadastro.Finalizar(); evi.inserePrintNoDoc();//Print
 		//10. Mensagem de sucesso criado.
 		cadastro.cadastroRealizadoSucesso(); evi.inserePrintNoDoc();//Print
-		//11. Fechar mensagem		
+		//11. Fechar mensagem	
+		Thread.sleep(5000);
 		cadastro.fecharMensagemDeSucesso();			
 		//12. Aguardar e validar que o usuário cadastrado logou na aplicação		
 		home.validaQueUsuarioEstaLogado(); evi.inserePrintNoDoc();//Print

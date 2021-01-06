@@ -25,6 +25,7 @@ public class BaseTest {
 	protected Actions builder;
 	protected PlanosPage planos;
 	protected PagamentoPlanosPage pagamento;
+	protected MeusPlanosPage meusplanos;
 	
 	@Before
 	public void inicializacao() {
@@ -42,6 +43,7 @@ public class BaseTest {
 		builder = new Actions(getDriver());
 		planos = new PlanosPage();
 		pagamento = new PagamentoPlanosPage();
+		meusplanos = new MeusPlanosPage();
 	}
 
 	

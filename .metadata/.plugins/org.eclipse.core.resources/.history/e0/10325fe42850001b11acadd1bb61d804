@@ -1,0 +1,12 @@
+package br.gruposer.gokursos.pages;
+
+import org.openqa.selenium.By;
+
+public class MeusPlanosPage extends BasePage{
+
+	public String getStatusPedidoSucesso() {
+		acoes.aguardarElementoFicarVisivel(By.xpath("//div[@class='badge badge-success']"));
+		return acoes.retornaTexto(By.xpath("//div[@class='badge badge-success']"));
+	}
+
+}

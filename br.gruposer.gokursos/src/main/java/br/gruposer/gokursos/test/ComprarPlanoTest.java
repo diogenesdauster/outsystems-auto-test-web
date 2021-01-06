@@ -5,8 +5,10 @@ import java.awt.HeadlessException;
 import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.junit.Assert;
 import org.junit.Test;
 import br.gruposer.gokursos.core.BaseTest;
+import br.gruposer.gokursos.pages.MeusPedidosPage;
 
 public class ComprarPlanoTest extends BaseTest	{
 
@@ -32,6 +34,7 @@ public class ComprarPlanoTest extends BaseTest	{
 		pagamento.gerarDadosCartao();
 		evi.inserePrintNoDoc();
 		pagamento.finalizarPagamento();
+		Assert.assertEquals("Plano Especial", meusplanos.getNomeDoPlano() ); 
 		evi.inserePrintNoDoc();
 		evi.concluiEvidencia("[TESTE AUTOMATIZADO] - Realizar compra direta de planos em detaques");
 		

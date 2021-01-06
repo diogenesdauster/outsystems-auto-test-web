@@ -100,13 +100,13 @@ public class LoginTest extends BaseTest {
 		home.clicarEmEntrar(); 
 		evi.inserePrintNoDoc(); //Print
 		login.registrar();
-		cadastro.setNome("Manuel Levi Cavalcanti");
-		cadastro.setCPF("27399462950"); 
+		cadastro.setNome("Igor Luiz Silveira");
+		cadastro.setCPF("51035762951"); 
 		evi.inserePrintNoDoc(); //Print
 		cadastro.tudoCerto();
 		Thread.sleep(5000);
 		evi.inserePrintNoDoc(); //Print
-		cadastro.setEmail("manuel@teste.com");
+		cadastro.setEmail("igor@teste.com");
 		cadastro.setDataDeNascimento("02051996");
 		cadastro.setTelefone("08195424131");
 		cadastro.setSenha("123456");
